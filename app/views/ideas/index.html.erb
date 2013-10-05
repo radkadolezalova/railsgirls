@@ -1,0 +1,31 @@
+<h1>Seznam obrázků</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Jméno</th>
+      <th>Popis</th>
+      <th>Obrázek</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Ukázat', idea %></td>
+        <td><%= link_to 'Upravit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Odstranit', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Idea', new_idea_path, class: 'btn btn-success' %>
